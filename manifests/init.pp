@@ -4,7 +4,7 @@ class chrome {
   # Google repository configuration based on
   # http://www.google.com/linuxrepositories/apt.html
 
-  if($chrome::is_desktop == 'true'){
+  # if($chrome::is_desktop == 'true'){
 
 
     # Add Google's apt-key.
@@ -18,9 +18,10 @@ class chrome {
     }
 
     apt::source { 'chrome':
-      location => 'http://dl.google.com/linux/chrome/deb',
-      release  => 'stable',
-      repos    => 'main non-free'
+      location    => 'http://dl.google.com/linux/chrome/deb',
+      release     => 'stable',
+      repos       => 'main',
+      include_src => false,
     }
 
     # Install latest stable; remove beta first, if present:
@@ -33,6 +34,6 @@ class chrome {
       require => [Package['google-chrome-beta']],
     }
 
-  }
+  # }
 }
 
