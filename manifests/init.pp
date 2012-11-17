@@ -1,10 +1,7 @@
 # A module which sets up google chrome browser, currently only on ubuntu systems
 class chrome {
 
-  # Google repository configuration based on
-  # http://www.google.com/linuxrepositories/apt.html
-
-  # if($chrome::is_desktop == 'true'){
+  if($desktop::is_desktop == 'true'){
 
 
     # Add Google's apt-key.
@@ -34,6 +31,6 @@ class chrome {
       require => [Package['google-chrome-beta']],
     }
 
-  # }
+  }
 }
 
